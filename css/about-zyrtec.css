@@ -1,0 +1,634 @@
+/* ========================================================
+   ZYRTEC Microsite — About ZYRTEC page styles
+   ======================================================== */
+
+:root {
+  --color-sky: #f6fbfe;
+  --color-stroke: #d8d7d5;
+}
+
+.about-page {
+  background: #fff;
+  color: var(--color-blue);
+  overflow-x: hidden;
+}
+
+/* ========================================================
+   HERO BANNER
+   ======================================================== */
+.about-hero {
+  position: relative;
+  width: 100%;
+  background: #fff;
+}
+
+.about-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ========================================================
+   SECTION: PACK + "And Favorable Control"
+   ======================================================== */
+.pack-favorable {
+  padding: 50px 0 30px;
+  position: relative;
+}
+
+.pack-favorable-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.pack-favorable-img {
+  width: 100%;
+  max-width: 75vw;
+  height: auto;
+  display: block;
+}
+
+.pack-favorable-text {
+  color: var(--color-blue);
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+.pack-favorable-text .label-and {
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 2.25rem);
+  margin: 0;
+  line-height: 1;
+}
+
+.pack-favorable-text .label-favorable {
+  font-weight: 700;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1;
+  margin: 6px 0 10px;
+  letter-spacing: 1px;
+}
+
+.pack-favorable-text .label-control {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(1.4rem, 2.5vw, 2.25rem);
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* ========================================================
+   SECTION: FDA / Symptoms info boxes
+   ======================================================== */
+.info-boxes {
+  padding: 30px 0 60px;
+}
+
+.info-box {
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 32px 30px;
+  height: 100%;
+}
+
+.info-box p,
+.info-box ul {
+  font-family: var(--font-family);
+  color: var(--color-blue);
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+
+.info-box ul {
+  padding-left: 22px;
+  margin-top: 6px;
+}
+
+.info-box ul li {
+  margin-bottom: 6px;
+}
+
+.text-zyrtec-blue {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+}
+
+.text-lemon {
+  color: var(--color-lemon);
+  font-weight: 700;
+}
+
+.text-blue {
+  color: var(--color-blue);
+}
+
+/* ========================================================
+   SECTION TITLES (big display headings)
+   ======================================================== */
+.display-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  color: var(--color-lemon);
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  margin: 0 0 24px;
+}
+
+.display-title .word-zyrtec {
+  color: var(--color-zyrtec-blue);
+}
+
+.display-title-sub {
+  text-align: center;
+  color: var(--color-blue);
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  margin: 0 0 30px;
+}
+
+.display-title-sub .word-zyrtec {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+}
+
+/* ========================================================
+   SECTION: FAST ONSET (24h icon + text + woman image)
+   ======================================================== */
+.fast-onset {
+  padding: 60px 0;
+}
+
+.fast-onset-row {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.fast-onset-text {
+  flex: 1 1 500px;
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 28px 30px 28px 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.fast-onset-icon {
+  flex: 0 0 140px;
+  width: 140px;
+  height: auto;
+}
+
+.fast-onset-copy {
+  color: var(--color-blue);
+  font-family: var(--font-family);
+  font-size: clamp(1.05rem, 1.5vw, 1.5rem);
+  line-height: 1.45;
+}
+
+.fast-onset-copy p {
+  margin: 0 0 8px;
+}
+
+.fast-onset-copy strong {
+  color: var(--color-zyrtec-blue);
+}
+
+.fast-onset-copy .accent-lemon {
+  color: var(--color-lemon);
+  font-weight: 700;
+}
+
+.fast-onset-img-wrap {
+  flex: 0 0 380px;
+  max-width: 420px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.fast-onset-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  min-height: 360px;
+}
+
+/* ========================================================
+   SECTION: FAMILY MEMBERS (cards)
+   ======================================================== */
+.family-section {
+  padding: 60px 0;
+  border-top: 1px solid var(--color-stroke);
+}
+
+.family-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.family-card {
+  background: #fff;
+  border: 1px solid var(--color-stroke);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.family-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(10, 48, 90, .10);
+}
+
+.family-card-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.family-card-body {
+  padding: 28px 24px;
+}
+
+.family-card-title {
+  color: var(--color-zyrtec-blue);
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  margin: 0 0 8px;
+}
+
+.family-card-body p {
+  color: var(--color-blue);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ========================================================
+   SECTION: HOW DOES ZYRTEC WORK
+   ======================================================== */
+.how-works {
+  padding: 80px 0 60px;
+  border-top: 1px solid var(--color-stroke);
+}
+
+.how-works-top {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.how-works-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  color: var(--color-zyrtec-blue);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.how-works-title .accent-lemon {
+  color: var(--color-lemon);
+}
+
+.how-works-pack {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.how-works-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.how-box {
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 32px 30px;
+}
+
+.how-box p {
+  color: var(--color-blue);
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
+  line-height: 1.45;
+  margin: 0;
+  font-family: var(--font-family);
+}
+
+.how-box .lead-lemon {
+  color: var(--color-lemon);
+  font-weight: 700;
+}
+
+/* ========================================================
+   SECTION: SAFETY
+   ======================================================== */
+.safety-section {
+  padding: 60px 0;
+  border-top: 1px solid var(--color-stroke);
+}
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.safety-img-wrap {
+  border-radius: 25px;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.safety-img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.safety-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.safety-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  color: var(--color-zyrtec-blue);
+  margin: 0 0 4px;
+  line-height: 1.1;
+}
+
+.safety-title .accent-lemon {
+  color: var(--color-lemon);
+}
+
+.safety-copy-box {
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 32px 30px;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.safety-shield-icon {
+  flex: 0 0 110px;
+  width: 110px;
+  height: auto;
+}
+
+.safety-copy {
+  color: var(--color-blue);
+  font-family: var(--font-family);
+  font-size: clamp(1rem, 1.3vw, 1.3rem);
+  line-height: 1.45;
+}
+
+.safety-copy p {
+  margin: 0 0 16px;
+}
+
+.safety-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.safety-highlight {
+  background: var(--color-lemon);
+  border-radius: 35px;
+  padding: 30px 40px;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.6vw, 1.55rem);
+  line-height: 1.35;
+  font-family: var(--font-family);
+}
+
+.safety-highlight .zyrtec-word {
+  color: var(--color-zyrtec-blue);
+}
+
+/* ========================================================
+   FAQ CTA button
+   ======================================================== */
+.faq-cta-section {
+  padding: 50px 0 70px;
+  text-align: center;
+}
+
+.btn-faq {
+  display: inline-block;
+  background: var(--color-lemon);
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  padding: 16px 48px;
+  border: 2px solid #72bb0b;
+  border-radius: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 4px 2px rgba(255, 255, 255, .8);
+  text-decoration: none;
+  transition: background-color .15s ease, transform .15s ease;
+  min-width: 300px;
+}
+
+.btn-faq:hover,
+.btn-faq:focus {
+  background: var(--color-lemon-dark);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* ========================================================
+   REFERENCES
+   ======================================================== */
+.references-block {
+  padding: 30px 0 50px;
+  border-top: 1px solid var(--color-stroke);
+  color: var(--color-blue);
+}
+
+.references-block .ref-title {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  margin: 0 0 14px;
+}
+
+.references-block ol {
+  padding-left: 22px;
+  margin: 0;
+  color: var(--color-blue);
+  font-size: clamp(.95rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.references-block ol li {
+  margin-bottom: 6px;
+}
+
+.references-block a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* ========================================================
+   DISCLAIMER
+   ======================================================== */
+.disclaimer-block {
+  padding: 30px 0 50px;
+  border-top: 1px solid var(--color-stroke);
+  border-bottom: 1px solid var(--color-stroke);
+  color: var(--color-blue);
+  font-size: clamp(.9rem, 1vw, 1rem);
+  line-height: 1.55;
+}
+
+.disclaimer-block p {
+  margin: 0 0 10px;
+}
+
+.disclaimer-block a {
+  color: var(--color-blue);
+  text-decoration: underline;
+}
+
+/* ========================================================
+   SCROLL REVEAL (progressive enhancement)
+   ======================================================== */
+.az-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.az-reveal--in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .az-reveal,
+  .az-reveal--in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ========================================================
+   RESPONSIVE
+   ======================================================== */
+@media (max-width: 991.98px) {
+  .fast-onset-text {
+    padding: 24px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .fast-onset-icon {
+    flex-basis: 110px;
+    width: 110px;
+  }
+
+  .fast-onset-img-wrap {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .fast-onset-img {
+    min-height: 280px;
+  }
+
+  .family-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how-works-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .how-works-boxes {
+    grid-template-columns: 1fr;
+  }
+
+  .safety-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .safety-img-wrap,
+  .safety-img {
+    min-height: 380px;
+  }
+
+  .safety-copy-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .pack-favorable-inner {
+    gap: 20px;
+  }
+
+  .info-box,
+  .how-box,
+  .safety-copy-box,
+  .fast-onset-text {
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+
+  .family-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .family-card-img {
+    height: 220px;
+  }
+
+  .safety-highlight {
+    padding: 22px 22px;
+    border-radius: 22px;
+  }
+
+  .btn-faq {
+    min-width: 0;
+    width: 100%;
+    padding: 14px 24px;
+  }
+}

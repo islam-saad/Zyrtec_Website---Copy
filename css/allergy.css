@@ -1,0 +1,592 @@
+/* ============================================================
+   ALLERGY PAGE STYLES
+   ============================================================ */
+
+:root {
+  --color-sky: #f6fbfe;
+  --color-stroke: #d8d7d5;
+}
+
+.allergy-page {
+  background: var(--color-white);
+}
+
+/* ============== HERO ============== */
+.allergy-hero {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.allergy-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============== INTRO TEXT BOXES ============== */
+.allergy-intro {
+  padding: 48px 0;
+  background: var(--color-white);
+}
+
+.intro-box {
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 40px 32px;
+  color: var(--color-blue);
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.5;
+  height: 100%;
+}
+
+.intro-box .cap {
+  font-weight: 700;
+}
+
+/* ============== SECTION TITLE (green heading) ============== */
+.section-heading {
+  color: var(--color-lemon);
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 72px);
+  line-height: 1.15;
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.section-heading--blue-top {
+  display: block;
+  color: var(--color-zyrtec-blue);
+}
+
+.section-sub {
+  color: var(--color-blue);
+  font-size: clamp(16px, 2vw, 26px);
+  text-align: center;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ============== SYMPTOMS ============== */
+.symptoms-section {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.symptoms-section .section-heading {
+  margin-bottom: 24px;
+}
+
+.symptoms-bg {
+  background: var(--color-sky);
+  padding: 56px 0;
+  margin-top: 32px;
+}
+
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px 28px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.symptom {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.symptom-icon-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.symptom-icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.symptom-num {
+  position: absolute;
+  top: -16px;
+  left: 92px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-lemon);
+  color: var(--color-white);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.symptom-text {
+  color: var(--color-zyrtec-blue);
+  font-weight: 500;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.3;
+}
+
+/* ============== QUALITY OF LIFE ============== */
+.quality-section {
+  padding: 72px 0 40px;
+  text-align: center;
+}
+
+.quality-section .quality-title {
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 72px);
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.quality-title .q-blue {
+  color: var(--color-zyrtec-blue);
+  display: block;
+}
+
+.quality-title .q-lemon {
+  color: var(--color-lemon);
+  display: block;
+}
+
+.quality-sub {
+  color: var(--color-blue);
+  font-size: clamp(16px, 2vw, 26px);
+  line-height: 1.5;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ============== SEASONAL / PERENNIAL ============== */
+.type-section {
+  padding: 48px 0;
+}
+
+.type-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.type-row.reverse {
+  direction: rtl;
+}
+
+.type-row.reverse>* {
+  direction: ltr;
+}
+
+.type-text-box {
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 36px 36px 36px 48px;
+  color: var(--color-blue);
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.5;
+}
+
+.type-text-box ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.type-text-box li {
+  margin-bottom: 14px;
+}
+
+.type-text-box li:last-child {
+  margin-bottom: 0;
+}
+
+.type-media {
+  position: relative;
+  border-radius: 25px;
+  overflow: visible;
+}
+
+.type-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 25px;
+}
+
+.type-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--color-zyrtec-blue);
+  color: var(--color-white);
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: clamp(14px, 1.4vw, 20px);
+  transform: rotate(-8deg);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ============== EFFECTIVE MANAGEMENT ============== */
+.management-section {
+  padding: 64px 0;
+  text-align: center;
+}
+
+.management-section .section-heading {
+  margin-bottom: 32px;
+}
+
+.management-text-box {
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 40px 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  text-align: left;
+  color: var(--color-blue);
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.5;
+}
+
+.management-icon {
+  flex-shrink: 0;
+  width: 140px;
+  height: auto;
+}
+
+.management-text ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.management-text li {
+  margin-bottom: 14px;
+}
+
+.management-text .lead-blue {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+}
+
+/* ============== MANAGEMENT CARDS ============== */
+.management-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.management-card {
+  background: var(--color-zyrtec-blue);
+  color: var(--color-white);
+  border: 1px solid var(--color-stroke);
+  border-radius: 16px;
+  padding: 24px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.3;
+  min-height: 110px;
+}
+
+/* ============== PRIOR PREVENTION ============== */
+.prior-prevention {
+  padding: 72px 0 32px;
+}
+
+.prior-prevention-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.prior-prevention .section-heading {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.prior-prevention-text {
+  color: var(--color-blue);
+  font-size: clamp(16px, 2vw, 26px);
+  line-height: 1.5;
+}
+
+.prior-prevention-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============== AVOID CTA BANNER ============== */
+.avoid-banner {
+  margin: 40px auto;
+  padding: 32px 48px;
+  background: var(--color-lemon);
+  border-radius: 35px;
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: clamp(20px, 2.5vw, 32px);
+  line-height: 1.3;
+  text-align: center;
+  max-width: 1100px;
+}
+
+/* ============== PREVENTION CARDS (3) ============== */
+.prevention-section {
+  padding: 40px 0 48px;
+  background: var(--color-white);
+}
+
+.prevention-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.prevention-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-stroke);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prevention-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.prevention-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+
+.prevention-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.prevention-card-body {
+  padding: 28px 24px;
+}
+
+.prevention-card-title {
+  font-weight: 700;
+  color: var(--color-zyrtec-blue);
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* ============== FAQ CTA BUTTON ============== */
+.faq-cta-section {
+  padding: 32px 0 48px;
+  text-align: center;
+}
+
+.btn-faq {
+  display: inline-block;
+  background: var(--color-lemon);
+  color: var(--color-white);
+  border: 2px solid #72bb0b;
+  border-radius: 32px;
+  padding: 14px 48px;
+  font-weight: 700;
+  font-size: clamp(16px, 1.4vw, 20px);
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.5);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  min-width: 360px;
+}
+
+.btn-faq:hover,
+.btn-faq:focus {
+  background: var(--color-lemon-dark, #7eb334);
+  color: var(--color-white);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* ============== DIVIDER ============== */
+.allergy-divider {
+  border: 0;
+  border-top: 1px solid var(--color-stroke);
+  margin: 48px auto;
+  max-width: 1440px;
+  width: calc(100% - 32px);
+}
+
+/* ============== DISCLAIMER & REFERENCES ============== */
+.disclaimer-block {
+  padding: 24px 0 16px;
+  color: var(--color-blue);
+  font-size: 14px;
+  line-height: 1.6;
+  border-top: 1px solid var(--color-stroke);
+}
+
+.disclaimer-block p {
+  margin-bottom: 10px;
+}
+
+.disclaimer-block a {
+  color: var(--color-zyrtec-blue);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.references-block {
+  padding: 16px 0 48px;
+  color: var(--color-blue);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.references-block .ref-title {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.references-block ol {
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.references-block ol li {
+  margin-bottom: 6px;
+}
+
+.references-block a {
+  color: var(--color-zyrtec-blue);
+  word-break: break-all;
+}
+
+.references-block .ref-note {
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* ============== SCROLL REVEAL ============== */
+.al-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.al-reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .al-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .prevention-card {
+    transition: none;
+  }
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 991.98px) {
+  .symptoms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .type-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .type-row.reverse {
+    direction: ltr;
+  }
+
+  .management-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prior-prevention-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .prevention-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .management-text-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .symptoms-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .prevention-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .management-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-faq {
+    min-width: 0;
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  .intro-box,
+  .type-text-box,
+  .management-text-box {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .avoid-banner {
+    padding: 20px 16px;
+    border-radius: 24px;
+  }
+}

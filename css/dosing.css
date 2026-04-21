@@ -1,0 +1,461 @@
+/* ========================================================
+   ZYRTEC Microsite — Dosing page styles
+   ======================================================== */
+
+:root {
+  --color-sky: #f6fbfe;
+  --color-stroke: #d8d7d5;
+}
+
+.dosing-page {
+  background: #fff;
+  color: var(--color-blue);
+  overflow-x: hidden;
+}
+
+/* ========================================================
+   HERO BANNER
+   ======================================================== */
+.dosing-hero {
+  position: relative;
+  width: 100%;
+  background: #fff;
+}
+
+.dosing-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ========================================================
+   SECTION TITLES
+   ======================================================== */
+.display-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  color: var(--color-zyrtec-blue);
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  margin: 0 0 36px;
+}
+
+.display-title .accent-lemon {
+  color: var(--color-lemon);
+}
+
+.display-title.left {
+  text-align: left;
+}
+
+/* ========================================================
+   DOSAGE SECTION: "What is the dosage"
+   ======================================================== */
+.dosage-section {
+  padding: 50px 0 40px;
+}
+
+.dosage-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.dosage-card {
+  background: #fff;
+  border: 1px solid var(--color-stroke);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.dosage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(10, 48, 90, .10);
+}
+
+.dosage-card-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.dosage-card-body {
+  padding: 26px 22px;
+  color: var(--color-blue);
+  font-family: var(--font-family);
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.dosage-card-body h3 {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 1.8vw, 1.7rem);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.dosage-card-body strong {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+}
+
+.dosage-card-body p {
+  margin: 0;
+}
+
+/* ========================================================
+   ADMINISTER SECTION
+   ======================================================== */
+.administer-section {
+  padding: 60px 0;
+  background: var(--color-sky);
+  border-radius: 25px;
+  margin: 20px 0;
+}
+
+.administer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.administer-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--color-zyrtec-blue);
+}
+
+.administer-title .accent-lemon {
+  color: var(--color-lemon);
+}
+
+.administer-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.administer-step {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 28px 0;
+}
+
+.administer-step+.administer-step {
+  border-top: 2px solid var(--color-stroke);
+}
+
+.administer-step-icon {
+  flex: 0 0 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.administer-step-icon img {
+  max-width: 100%;
+  height: auto;
+  max-height: 100px;
+  display: block;
+}
+
+.administer-step-text {
+  flex: 1;
+  color: var(--color-blue);
+  font-family: var(--font-family);
+  font-size: clamp(1.1rem, 1.5vw, 1.55rem);
+  line-height: 1.35;
+}
+
+/* ========================================================
+   WITH FOOD SECTION
+   ======================================================== */
+.with-food-section {
+  padding: 80px 0 40px;
+}
+
+.with-food-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.with-food-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  justify-content: center;
+}
+
+.with-food-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  color: var(--color-lemon);
+  margin: 0;
+}
+
+.with-food-title .word-zyrtec {
+  color: var(--color-zyrtec-blue);
+  display: block;
+}
+
+.with-food-copy-box {
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 26px 28px;
+}
+
+.with-food-copy-box ul {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--color-blue);
+  font-family: var(--font-family);
+  font-size: clamp(1.05rem, 1.5vw, 1.5rem);
+  line-height: 1.45;
+}
+
+.with-food-copy-box ul li {
+  margin-bottom: 8px;
+}
+
+.with-food-copy-box strong {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+}
+
+.with-food-img-wrap {
+  border-radius: 25px;
+  overflow: hidden;
+  min-height: 460px;
+}
+
+.with-food-img {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ========================================================
+   DOCTOR RECOMMENDATION banner
+   ======================================================== */
+.doctor-note {
+  background: var(--color-sky);
+  border-radius: 25px;
+  padding: 28px 40px;
+  text-align: center;
+  color: var(--color-zyrtec-blue);
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.6vw, 1.55rem);
+  line-height: 1.3;
+  margin: 30px 0;
+}
+
+/* ========================================================
+   CONSULT CTA (lemon pill)
+   ======================================================== */
+.consult-cta {
+  background: var(--color-lemon);
+  border-radius: 35px;
+  padding: 36px 40px;
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1.8vw, 1.75rem);
+  line-height: 1.3;
+  max-width: 1150px;
+  margin: 30px auto 40px;
+}
+
+.consult-cta .word-zyrtec {
+  color: var(--color-zyrtec-blue);
+  display: inline-block;
+}
+
+/* ========================================================
+   FAQ CTA button
+   ======================================================== */
+.faq-cta-section {
+  padding: 20px 0 60px;
+  text-align: center;
+}
+
+.btn-faq {
+  display: inline-block;
+  background: var(--color-lemon);
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  padding: 16px 48px;
+  border: 2px solid #72bb0b;
+  border-radius: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 4px 2px rgba(255, 255, 255, .8);
+  text-decoration: none;
+  transition: background-color .15s ease, transform .15s ease;
+  min-width: 300px;
+}
+
+.btn-faq:hover,
+.btn-faq:focus {
+  background: var(--color-lemon-dark);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* ========================================================
+   REFERENCES
+   ======================================================== */
+.references-block {
+  padding: 30px 0 40px;
+  border-top: 1px solid var(--color-stroke);
+  color: var(--color-blue);
+}
+
+.references-block .ref-title {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  margin: 0 0 14px;
+}
+
+.references-block ol {
+  padding-left: 22px;
+  margin: 0;
+  color: var(--color-blue);
+  font-size: clamp(.95rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.references-block ol li {
+  margin-bottom: 6px;
+}
+
+/* ========================================================
+   DISCLAIMER
+   ======================================================== */
+.disclaimer-block {
+  padding: 30px 0 50px;
+  border-top: 1px solid var(--color-stroke);
+  border-bottom: 1px solid var(--color-stroke);
+  color: var(--color-blue);
+  font-size: clamp(.9rem, 1vw, 1rem);
+  line-height: 1.55;
+}
+
+.disclaimer-block p {
+  margin: 0 0 10px;
+}
+
+.disclaimer-block a {
+  color: var(--color-blue);
+  text-decoration: underline;
+}
+
+/* ========================================================
+   SCROLL REVEAL (progressive enhancement)
+   ======================================================== */
+.dz-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.dz-reveal--in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .dz-reveal,
+  .dz-reveal--in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ========================================================
+   RESPONSIVE
+   ======================================================== */
+@media (max-width: 991.98px) {
+  .dosage-cards {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  .administer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .administer-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .administer-step-icon {
+    flex: 0 0 auto;
+  }
+
+  .with-food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .with-food-img-wrap,
+  .with-food-img {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .administer-section {
+    padding: 40px 18px;
+    border-radius: 18px;
+  }
+
+  .with-food-copy-box,
+  .doctor-note,
+  .consult-cta {
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+
+  .dosage-card-img {
+    height: 220px;
+  }
+
+  .btn-faq {
+    min-width: 0;
+    width: 100%;
+    padding: 14px 24px;
+  }
+
+  .with-food-img-wrap,
+  .with-food-img {
+    min-height: 260px;
+  }
+}

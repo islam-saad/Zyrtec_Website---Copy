@@ -1,0 +1,801 @@
+/* ========================================================
+   ZYRTEC Microsite — Brand Stylesheet
+   ======================================================== */
+
+:root {
+  --color-lemon: #92cc3f;
+  --color-lemon-dark: #7eb334;
+  --color-blue: #3d518c;
+  --color-zyrtec-blue: #0689d1;
+  --color-zyrtec-blue-dark: #056fa9;
+  --color-white: #ffffff;
+  --color-light-gray: #f5f7fa;
+  --color-text: #2b2b2b;
+  --color-muted: #6b7280;
+
+  --font-family: Arial, Helvetica, sans-serif;
+
+  --radius-pill: 50px;
+  --radius-card: 14px;
+  --shadow-card: 0 8px 24px rgba(10, 48, 90, 0.08);
+  --shadow-navbar: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  line-height: 1.6;
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-family);
+  color: var(--color-blue);
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+a {
+  color: var(--color-zyrtec-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-zyrtec-blue-dark);
+  text-decoration: underline;
+}
+
+sup {
+  font-size: 0.65em;
+  top: -0.4em;
+}
+
+/* ---------- Buttons ---------- */
+.btn-zyrtec {
+  background-color: var(--color-zyrtec-blue);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  padding: 12px 28px;
+  font-weight: 600;
+  border: 0;
+  transition: background-color .15s ease, transform .15s ease;
+}
+
+.btn-zyrtec:hover {
+  background-color: var(--color-zyrtec-blue-dark);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+
+.btn-lemon {
+  display: inline-block;
+  background: var(--color-lemon);
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  padding: 8px 22px;
+  border: 2px solid #72bb0b;
+  border-radius: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 4px 2px rgba(255, 255, 255, .8);
+  text-decoration: none;
+  transition: background-color .15s ease, transform .15s ease;
+  min-width: 150px;
+}
+
+.btn-lemon:hover,
+.btn-lemon:focus {
+  background: var(--color-lemon-dark);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+
+/* .btn-lemon.btn-sm,
+.btn-zyrtec.btn-sm {
+  padding: 8px 22px;
+  font-size: .9rem;
+} */
+
+.btn-outline-white {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: var(--radius-pill);
+  padding: 10px 26px;
+  font-weight: 600;
+  transition: background-color .15s, color .15s;
+}
+
+.btn-outline-white:hover {
+  background: #fff;
+  color: var(--color-zyrtec-blue);
+}
+
+.btn-find-relief {
+  padding: 8px 22px;
+  font-size: .95rem;
+}
+
+/* ========================================================
+   NAVBAR
+   ======================================================== */
+.zyrtec-navbar {
+  background-color: var(--color-zyrtec-blue);
+  padding: 10px 0;
+  transition: box-shadow .2s ease;
+}
+
+.zyrtec-navbar.is-scrolled {
+  box-shadow: var(--shadow-navbar);
+}
+
+.zyrtec-navbar .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+}
+
+.brand-logo {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+.zyrtec-navbar .navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 14px !important;
+  position: relative;
+  font-size: .95rem;
+}
+
+.zyrtec-navbar .navbar-nav .nav-link:hover,
+.zyrtec-navbar .navbar-nav .nav-link:focus {
+  color: #fff;
+  opacity: .85;
+  text-decoration: none;
+}
+
+.zyrtec-navbar .navbar-nav .nav-link.active {
+  font-weight: 700;
+}
+
+.zyrtec-navbar .navbar-nav .nav-link.active::after,
+.zyrtec-navbar .navbar-nav .nav-link:hover::after,
+.zyrtec-navbar .navbar-nav .nav-link:focus::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: -2px;
+  height: 3px;
+  background: var(--color-lemon);
+  border-radius: 2px;
+}
+
+.zyrtec-navbar .navbar-toggler {
+  border: 2px solid rgba(255, 255, 255, .7);
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.zyrtec-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .35);
+}
+
+.zyrtec-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.zyrtec-navbar .dropdown-menu {
+  border: 0;
+  box-shadow: var(--shadow-card);
+  border-radius: 10px;
+}
+
+.zyrtec-navbar .dropdown-item:hover {
+  background: var(--color-light-gray);
+  color: var(--color-zyrtec-blue);
+}
+
+/* ========================================================
+   HERO
+   ======================================================== */
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-zyrtec-blue);
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ========================================================
+   FAST & EFFECTIVE block
+   ======================================================== */
+.section-title-block {
+  padding: 40px 0 20px;
+}
+
+.fe-title {
+  color: var(--color-lemon);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.fe-sub {
+  color: var(--color-blue);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  margin-top: 4px;
+}
+
+/* ========================================================
+   VIDEO SECTION
+   ======================================================== */
+.video-section {
+  padding: 30px 0 50px;
+}
+
+.video-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 0;
+  padding: 0;
+  background: var(--color-light-gray);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+}
+
+.video-thumb-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  background: rgba(255, 255, 255, .85);
+  color: var(--color-zyrtec-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.video-thumb:hover .video-play {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: #fff;
+}
+
+/* ========================================================
+   CTA CARDS (About / Dosing)
+   ======================================================== */
+.cta-cards {
+  padding: 40px 0 60px;
+}
+
+.cta-card {
+  background: #fff;
+  border-radius: var(--radius-card);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--shadow-card);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.cta-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(10, 48, 90, 0.12);
+}
+
+.cta-card-icon {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-icon-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cta-card-body {
+  flex: 1;
+}
+
+.cta-card-title {
+  color: var(--color-zyrtec-blue);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0 0 10px;
+  line-height: 1.15;
+}
+
+.cta-card-title strong {
+  font-weight: 700;
+  display: block;
+}
+
+
+
+/* ========================================================
+   DISCLAIMER + REFERENCES
+   ======================================================== */
+.disclaimer-section {
+  padding: 40px 0 10px;
+  color: var(--color-blue);
+  font-size: .8rem;
+  line-height: 1.5;
+  border-top: 1px solid #e5e9f2;
+}
+
+.disclaimer-section p {
+  margin-bottom: .35rem;
+}
+
+.disclaimer-section a {
+  color: var(--color-blue);
+  text-decoration: underline;
+}
+
+.references-section {
+  padding: 20px 0 40px;
+  font-size: .85rem;
+  color: var(--color-blue);
+}
+
+.references-title {
+  color: var(--color-zyrtec-blue);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.references-list {
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+
+.references-list li {
+  margin-bottom: 6px;
+}
+
+.ref-note {
+  color: var(--color-blue);
+  font-size: .8rem;
+}
+
+/* ========================================================
+   FOOTER
+   ======================================================== */
+.zyrtec-footer {
+  background: var(--color-lemon);
+  color: #fff;
+  padding: 40px 0 18px;
+  font-size: .92rem;
+}
+
+.zyrtec-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.zyrtec-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+  opacity: .9;
+}
+
+.footer-heading {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: .5px;
+}
+
+.footer-block {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.footer-links,
+.footer-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.9;
+}
+
+.footer-links li a {
+  display: inline-block;
+}
+
+.footer-bottom {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; */
+  margin-top: 26px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  font-size: .82rem;
+}
+
+.footer-bottom a {
+  text-decoration: underline;
+}
+
+/* ========================================================
+   RESPONSIVE
+   ======================================================== */
+@media (max-width: 991.98px) {
+  .zyrtec-navbar .navbar-collapse {
+    background: var(--color-zyrtec-blue);
+    padding: 14px 18px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+  }
+
+  .zyrtec-navbar .navbar-nav {
+    gap: 4px;
+  }
+
+  .zyrtec-navbar .navbar-nav .nav-link {
+    padding: 10px 14px !important;
+    border-radius: 6px;
+  }
+
+  .zyrtec-navbar .navbar-nav .nav-link:hover,
+  .zyrtec-navbar .navbar-nav .nav-link:focus {
+    background: rgba(255, 255, 255, .1);
+    opacity: 1;
+  }
+
+  .zyrtec-navbar .navbar-nav .nav-link.active {
+    background: rgba(255, 255, 255, .15);
+  }
+
+  .zyrtec-navbar .navbar-nav .nav-link.active::after,
+  .zyrtec-navbar .navbar-nav .nav-link:hover::after,
+  .zyrtec-navbar .navbar-nav .nav-link:focus::after {
+    display: none;
+  }
+
+  .btn-find-relief {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .cta-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .brand-logo {
+    height: 38px;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ========================================================
+   COOKIES POPUP
+   ======================================================== */
+.cookies-popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1080;
+  background: #fff;
+  color: #333;
+  padding: 32px 0 22px;
+  box-shadow: 0 -10px 40px rgba(10, 48, 90, 0.18);
+  border-top: 1px solid #e5e9f2;
+  max-height: 92vh;
+  overflow-y: auto;
+  animation: cookiesSlideUp .3s ease-out;
+}
+
+.cookies-popup[hidden] {
+  display: none;
+}
+
+@keyframes cookiesSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookies-title {
+  color: #333;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  margin: 0 0 14px;
+}
+
+.cookies-intro {
+  color: #4a4a4a;
+  font-size: .95rem;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 0 22px;
+}
+
+.cookies-policy-link {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+  text-decoration: underline;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+.cookies-policy-link:hover {
+  color: var(--color-zyrtec-blue-dark);
+}
+
+/* Collapsible detail area */
+.cookies-details {
+  display: grid;
+  gap: 22px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: max-height .3s ease, opacity .25s ease, margin .25s ease;
+}
+
+.cookies-popup.is-collapsed .cookies-details {
+  max-height: 0;
+  opacity: 0;
+  margin-bottom: 0;
+  pointer-events: none;
+}
+
+/* Cookie option row (checkbox + text) */
+.cookie-option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  cursor: pointer;
+  margin: 0;
+}
+
+.cookie-option>input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.cookie-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-zyrtec-blue);
+  border-radius: 5px;
+  background: #fff;
+  transition: background-color .15s ease, border-color .15s ease;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cookie-check::after {
+  content: "";
+  width: 12px;
+  height: 7px;
+  border-left: 2.5px solid #fff;
+  border-bottom: 2.5px solid #fff;
+  transform: rotate(-45deg) translate(1px, -1px);
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+.cookie-option>input[type="checkbox"]:checked+.cookie-check {
+  background: var(--color-zyrtec-blue);
+}
+
+.cookie-option>input[type="checkbox"]:checked+.cookie-check::after {
+  opacity: 1;
+}
+
+.cookie-option>input[type="checkbox"]:focus-visible+.cookie-check {
+  box-shadow: 0 0 0 3px rgba(6, 137, 209, .25);
+}
+
+.cookie-option-text {
+  display: block;
+}
+
+.cookie-option-title {
+  display: block;
+  color: #333;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.cookie-option-desc {
+  display: block;
+  color: #4a4a4a;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+
+/* Actions row */
+.cookies-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid #eef1f6;
+}
+
+.cookies-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  color: #333;
+  font-weight: 700;
+  font-size: .95rem;
+  padding: 6px 2px;
+  cursor: pointer;
+}
+
+.cookies-toggle:hover {
+  color: var(--color-zyrtec-blue);
+}
+
+.cookies-toggle-icon {
+  transition: transform .2s ease;
+}
+
+.cookies-popup.is-collapsed .cookies-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.cookies-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-cookies-outline,
+.btn-cookies-primary {
+  min-width: 140px;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .5px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-zyrtec-blue);
+  transition: background-color .15s ease, color .15s ease, transform .15s ease;
+}
+
+.btn-cookies-outline {
+  background: #fff;
+  color: var(--color-zyrtec-blue);
+}
+
+.btn-cookies-outline:hover {
+  background: var(--color-zyrtec-blue);
+  color: #fff;
+}
+
+.btn-cookies-primary {
+  background: var(--color-zyrtec-blue);
+  color: #fff;
+}
+
+.btn-cookies-primary:hover {
+  background: var(--color-zyrtec-blue-dark);
+  border-color: var(--color-zyrtec-blue-dark);
+}
+
+@media (max-width: 575.98px) {
+  .cookies-popup {
+    padding: 22px 0 16px;
+  }
+
+  .cookies-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cookies-buttons {
+    justify-content: stretch;
+  }
+
+  .btn-cookies-outline,
+  .btn-cookies-primary {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cookies-toggle {
+    align-self: flex-start;
+  }
+}

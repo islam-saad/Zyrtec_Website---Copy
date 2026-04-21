@@ -1,0 +1,226 @@
+/* ============================================================
+   FAQ ALLERGY PAGE STYLES
+   ============================================================ */
+
+.faq-allergy-page {
+  background: var(--color-white);
+}
+
+/* ============== HERO ============== */
+.faq-hero {
+  width: 100%;
+  line-height: 0;
+}
+
+.faq-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============== TITLE ============== */
+.faq-title-section {
+  padding: 48px 0 24px;
+  text-align: center;
+}
+
+.faq-title {
+  color: var(--color-zyrtec-blue);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* ============== LIST ============== */
+.faq-list {
+  padding: 24px 0 56px;
+}
+
+.faq-list .container {
+  max-width: 1080px;
+}
+
+.faq-item {
+  background: #f6fbfe;
+  border: 1.5px solid var(--color-zyrtec-blue);
+  border-radius: 25px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 8px 24px rgba(6, 137, 209, 0.08);
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 22px;
+  text-align: left;
+  font-family: inherit;
+  color: var(--color-blue);
+  font-weight: 700;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--color-zyrtec-blue);
+  outline-offset: 2px;
+  border-radius: 18px;
+}
+
+.faq-question-text {
+  flex: 1;
+}
+
+.faq-toggle {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-zyrtec-blue);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.faq-item.is-open .faq-toggle {
+  background: var(--color-blue);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-item.is-open .faq-answer {
+  max-height: 600px;
+}
+
+.faq-answer-inner {
+  padding: 0 22px 20px;
+  color: var(--color-blue);
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.6;
+}
+
+.faq-answer-inner p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.faq-answer-inner .brand-zyrtec {
+  color: var(--color-zyrtec-blue);
+}
+
+/* ============== DISCLAIMER ============== */
+.disclaimer-block {
+  padding: 32px 0;
+  color: #444;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.disclaimer-block p {
+  margin-bottom: 10px;
+}
+
+.disclaimer-block a {
+  color: var(--color-zyrtec-blue);
+  text-decoration: underline;
+}
+
+/* ============== REFERENCES ============== */
+.references-block {
+  padding: 12px 0 48px;
+  color: #444;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.references-block .ref-title {
+  font-weight: 700;
+  color: var(--color-zyrtec-blue);
+  margin-bottom: 8px;
+}
+
+.references-block ol {
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.references-block ol li {
+  margin-bottom: 4px;
+}
+
+.references-block a {
+  color: var(--color-zyrtec-blue);
+  word-break: break-all;
+}
+
+.references-block .ref-note {
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* ============== SCROLL REVEAL ============== */
+.fqa-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fqa-reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fqa-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .faq-answer,
+  .faq-toggle {
+    transition: none;
+  }
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 575.98px) {
+  .faq-question {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .faq-toggle {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .faq-answer-inner {
+    padding: 0 16px 16px;
+  }
+
+  .faq-title-section {
+    padding: 32px 0 16px;
+  }
+}
