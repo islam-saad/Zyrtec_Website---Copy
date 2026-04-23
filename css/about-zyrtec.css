@@ -86,7 +86,7 @@
    SECTION: FDA / Symptoms info boxes
    ======================================================== */
 .info-boxes {
-  padding: 30px 0 60px;
+  padding: 30px 0;
 }
 
 .info-box {
@@ -161,7 +161,8 @@
    SECTION: FAST ONSET (24h icon + text + woman image)
    ======================================================== */
 .fast-onset {
-  padding: 60px 0;
+  padding: 30px 0;
+  border-top: 1px solid #e5e9f2;
 }
 
 .fast-onset-row {
@@ -175,7 +176,7 @@
   flex: 1 1 500px;
   background: var(--color-sky);
   border-radius: 25px;
-  padding: 28px 30px 28px 40px;
+  padding: 50px 30px 50px 40px;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -219,14 +220,14 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  min-height: 360px;
+  min-height: 260px;
 }
 
 /* ========================================================
    SECTION: FAMILY MEMBERS (cards)
    ======================================================== */
 .family-section {
-  padding: 60px 0;
+  padding: 30px 0;
   border-top: 1px solid var(--color-stroke);
 }
 
@@ -282,7 +283,7 @@
    SECTION: HOW DOES ZYRTEC WORK
    ======================================================== */
 .how-works {
-  padding: 80px 0 60px;
+  padding: 30px 0;
   border-top: 1px solid var(--color-stroke);
 }
 
@@ -344,13 +345,13 @@
    SECTION: SAFETY
    ======================================================== */
 .safety-section {
-  padding: 60px 0;
+  padding: 20px 0;
   border-top: 1px solid var(--color-stroke);
 }
 
 .safety-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr 2fr;
   gap: 40px;
   align-items: stretch;
 }
@@ -372,7 +373,8 @@
 .safety-right {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: end;
+  gap: 30px;
 }
 
 .safety-title {
@@ -391,10 +393,10 @@
 .safety-copy-box {
   background: var(--color-sky);
   border-radius: 25px;
-  padding: 32px 30px;
+  padding: 60px 30px;
   display: flex;
   gap: 28px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .safety-shield-icon {
@@ -406,7 +408,7 @@
 .safety-copy {
   color: var(--color-blue);
   font-family: var(--font-family);
-  font-size: clamp(1rem, 1.3vw, 1.3rem);
+  font-size: clamp(1rem, 1.7vw, 1.7rem);
   line-height: 1.45;
 }
 
@@ -428,6 +430,8 @@
   font-size: clamp(1.1rem, 1.6vw, 1.55rem);
   line-height: 1.35;
   font-family: var(--font-family);
+  margin: -4rem 3rem 0;
+
 }
 
 .safety-highlight .zyrtec-word {
@@ -438,7 +442,7 @@
    FAQ CTA button
    ======================================================== */
 .faq-cta-section {
-  padding: 50px 0 70px;
+  padding: 20px 0;
   text-align: center;
 }
 
@@ -448,7 +452,7 @@
   color: #fff;
   font-weight: 700;
   font-size: clamp(1rem, 1.3vw, 1.25rem);
-  padding: 16px 48px;
+  padding: 16px 115px;
   border: 2px solid #72bb0b;
   border-radius: 32px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 4px 2px rgba(255, 255, 255, .8);
@@ -469,7 +473,7 @@
    REFERENCES
    ======================================================== */
 .references-block {
-  padding: 30px 0 50px;
+  padding: 20px 0;
   border-top: 1px solid var(--color-stroke);
   color: var(--color-blue);
 }
@@ -503,7 +507,7 @@
    DISCLAIMER
    ======================================================== */
 .disclaimer-block {
-  padding: 30px 0 50px;
+  padding: 20px 0;
   border-top: 1px solid var(--color-stroke);
   border-bottom: 1px solid var(--color-stroke);
   color: var(--color-blue);

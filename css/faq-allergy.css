@@ -20,7 +20,7 @@
 
 /* ============== TITLE ============== */
 .faq-title-section {
-  padding: 48px 0 24px;
+  padding: 0 0 20px 0;
   text-align: center;
 }
 
@@ -34,7 +34,7 @@
 
 /* ============== LIST ============== */
 .faq-list {
-  padding: 24px 0 56px;
+  padding: 24px 0;
 }
 
 .faq-list .container {
@@ -65,7 +65,7 @@
   padding: 18px 22px;
   text-align: left;
   font-family: inherit;
-  color: var(--color-blue);
+  color: var(--color-zyrtec-blue);
   font-weight: 700;
   font-size: clamp(15px, 1.6vw, 18px);
   line-height: 1.4;
@@ -130,7 +130,7 @@
 
 /* ============== DISCLAIMER ============== */
 .disclaimer-block {
-  padding: 32px 0;
+  padding: 20px 0;
   color: #444;
   font-size: 12px;
   line-height: 1.6;
@@ -147,7 +147,7 @@
 
 /* ============== REFERENCES ============== */
 .references-block {
-  padding: 12px 0 48px;
+  padding: 20px 0;
   color: #444;
   font-size: 12px;
   line-height: 1.6;
