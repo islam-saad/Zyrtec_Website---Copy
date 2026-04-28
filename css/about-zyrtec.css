@@ -13,6 +13,312 @@
   overflow-x: hidden;
 }
 
+/* ---------- Banner stage ---------- */
+.banner {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  aspect-ratio: 2 / 1;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #000;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, .12); */
+  isolation: isolate;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform, opacity, filter;
+}
+
+/* ---------- Layer 1 : Background photo (before+after — both men, static)
+       NOTE: The previous version used a clip-path wipe between two photos, which
+       produced a visible vertical seam line. That has been removed — both men
+       are now visible from the start; the brand story (suffering left → relief
+       right) reads from the photo itself, and the entrance drama is carried by
+       the foreground composition + ticking clock. ---------- */
+.bg {
+  background-image: url("../assets/v2_bg_before_after.jpg");
+  transform-origin: 50% 50%;
+  animation: kenburns 9s ease-in-out infinite;
+}
+
+.vignette {
+  background:
+    radial-gradient(ellipse at 50% 60%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, .20) 70%,
+      rgba(0, 0, 0, .45) 100%);
+  pointer-events: none;
+  animation: vignette-pulse 9s ease-in-out infinite;
+}
+
+/* ---------- Layer 2 : Foreground composition
+       (timer + product + body copy + CTA + clouds) ---------- */
+.composition {
+  background-image: url("../assets/v2_full_composition.png");
+  transform-origin: 50% 100%;
+  animation: composition-in 9s cubic-bezier(.22, .9, .3, 1) infinite;
+}
+
+/* ---------- Layer 3 : Animated SVG clock overlay ----------
+     Sits over the static clock at center (749,370) r=175 in 1600x800 ---------- */
+.clock {
+  position: absolute;
+  left: 35.875%;
+  /* (749 - 175) / 1600 */
+  top: 24.375%;
+  /* (370 - 175) / 800  */
+  width: 21.875%;
+  /* 350 / 1600 */
+  height: 43.75%;
+  /* 350 / 800  */
+  transform-origin: 50% 100%;
+  animation: composition-in 9s cubic-bezier(.22, .9, .3, 1) infinite;
+  pointer-events: none;
+}
+
+.clock svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.hand-hour {
+  transform-origin: 50px 50px;
+  animation: hour-drift 480s linear infinite;
+}
+
+.hand-minute {
+  transform-origin: 50px 50px;
+  animation: minute-drift 60s linear infinite;
+}
+
+.hand-second {
+  transform-origin: 50px 50px;
+  animation: tick-tock 6s steps(30, end) infinite;
+}
+
+/* ---------- Layer 4 : Shine sweep ---------- */
+.shine {
+  background: linear-gradient(115deg,
+      rgba(255, 255, 255, 0) 38%,
+      rgba(255, 255, 255, .32) 50%,
+      rgba(255, 255, 255, 0) 62%);
+  mix-blend-mode: screen;
+  transform: translateX(-110%);
+  animation: shine-sweep 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ---------- Layer 5 : CTA glow ---------- */
+.cta-glow {
+  background: radial-gradient(circle at 78% 50%,
+      rgba(0, 153, 213, .35) 0%,
+      rgba(0, 153, 213, 0) 16%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: cta-breathe 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ---------- Click-through CTA ---------- */
+.cta-link {
+  position: absolute;
+  top: 36%;
+  left: 64%;
+  width: 26%;
+  height: 26%;
+  cursor: pointer;
+  z-index: 10;
+  text-decoration: none;
+}
+
+/* ============================================================
+     KEYFRAMES (9s loop)
+     ============================================================ */
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1.05);
+  }
+
+  45% {
+    transform: scale(1.02);
+  }
+
+  70% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes vignette-pulse {
+  0% {
+    opacity: .55;
+  }
+
+  45% {
+    opacity: .85;
+  }
+
+  100% {
+    opacity: .55;
+  }
+}
+
+@keyframes composition-in {
+  0% {
+    transform: translateY(8%) scale(.96);
+    opacity: 0;
+    filter: blur(6px);
+  }
+
+  14% {
+    transform: translateY(2%) scale(.985);
+    opacity: .9;
+    filter: blur(2px);
+  }
+
+  30% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  78% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  92% {
+    transform: translateY(2%) scale(.99);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    transform: translateY(8%) scale(.96);
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+@keyframes hour-drift {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes minute-drift {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tick-tock {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shine-sweep {
+
+  0%,
+  38% {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  62% {
+    transform: translateX(110%);
+    opacity: 1;
+  }
+
+  63%,
+  100% {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+}
+
+@keyframes cta-breathe {
+
+  0%,
+  32% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .9;
+  }
+
+  60% {
+    opacity: .15;
+  }
+
+  70% {
+    opacity: .85;
+  }
+
+  80% {
+    opacity: .15;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .bg,
+  .composition,
+  .shine,
+  .cta-glow,
+  .vignette,
+  .clock,
+  .hand-hour,
+  .hand-minute,
+  .hand-second {
+    animation: none !important;
+  }
+
+  .composition,
+  .clock {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
 /* ========================================================
    HERO BANNER
    ======================================================== */

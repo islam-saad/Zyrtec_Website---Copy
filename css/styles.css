@@ -116,6 +116,350 @@ sup {
   transform: translateY(-1px);
 }
 
+/* ---------- Banner stage (1600x800, fluid) ---------- */
+.banner {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  aspect-ratio: 2 / 1;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #000;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, .12); */
+  isolation: isolate;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform, opacity, filter;
+}
+
+/* ---------- Layer 1 : Background photo (woman, relief scene) ---------- */
+.bg {
+  background-image: url("../assets/v1_bg_woman.jpg");
+  transform-origin: 70% 50%;
+  animation: kenburns 8s ease-in-out infinite;
+}
+
+/* Soft warm vignette to lift the foreground off the photo */
+.vignette {
+  background: radial-gradient(ellipse at 70% 50%,
+      rgba(0, 0, 0, 0) 35%,
+      rgba(0, 0, 0, .18) 70%,
+      rgba(0, 0, 0, .42) 100%);
+  pointer-events: none;
+  animation: vignette-pulse 8s ease-in-out infinite;
+}
+
+/* ---------- Layer 2 : Foreground composition
+       (blue curve + timer + product + CTA copy) — slides in as one unit ---------- */
+.composition {
+  background-image: url("../assets/v1_timer_composition.png");
+  transform-origin: 50% 100%;
+  animation: composition-in 8s cubic-bezier(.22, .9, .3, 1) infinite;
+}
+
+/* ---------- Layer 3 : Animated SVG clock overlay ----------
+     Sits exactly over the static clock at center (380,353) r=220 in 1600x800.
+     The face PNG underneath provides the dial; only the hands here animate. */
+.clock {
+  position: absolute;
+  left: 10%;
+  /* (380 - 220) / 1600 */
+  top: 16.625%;
+  /* (353 - 220) / 800  */
+  width: 27.5%;
+  /* 440 / 1600 */
+  height: 55%;
+  /* 440 / 800  */
+  transform-origin: 50% 100%;
+  animation: composition-in 8s cubic-bezier(.22, .9, .3, 1) infinite;
+  pointer-events: none;
+}
+
+.clock svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* The hour and minute hands match the static design's pose, but drift slowly */
+.hand-hour {
+  transform-origin: 50px 50px;
+  animation: hour-drift 480s linear infinite;
+}
+
+.hand-minute {
+  transform-origin: 50px 50px;
+  animation: minute-drift 60s linear infinite;
+}
+
+/* Second hand: tick-tock, 30 discrete ticks per loop */
+.hand-second {
+  transform-origin: 50px 50px;
+  animation: tick-tock 6s steps(30, end) infinite;
+}
+
+.hand-pin {
+  transform-origin: 50px 50px;
+}
+
+/* ---------- Layer 4 : White clouds — FOREGROUND, on top of the composition ---------- */
+.clouds {
+  background-image: url("../assets/v1_clouds.png");
+  background-size: 100% auto;
+  background-position: bottom center;
+  animation: clouds-drift 8s ease-in-out infinite;
+}
+
+/* ---------- Layer 5 : Shine sweep across the whole banner ---------- */
+.shine {
+  background: linear-gradient(115deg,
+      rgba(255, 255, 255, 0) 38%,
+      rgba(255, 255, 255, .32) 50%,
+      rgba(255, 255, 255, 0) 62%);
+  mix-blend-mode: screen;
+  transform: translateX(-110%);
+  animation: shine-sweep 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ---------- Layer 6 : CTA breathing pulse ---------- */
+.cta-glow {
+  background: radial-gradient(circle at 78% 52%,
+      rgba(0, 153, 213, .35) 0%,
+      rgba(0, 153, 213, 0) 16%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: cta-breathe 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ---------- Click-through CTA hit area ---------- */
+.cta-link {
+  position: absolute;
+  top: 38%;
+  left: 64%;
+  width: 26%;
+  height: 24%;
+  cursor: pointer;
+  z-index: 10;
+  text-decoration: none;
+}
+
+/* ============================================================
+     KEYFRAMES (8s loop)
+     ============================================================ */
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1.06) translateX(0);
+  }
+
+  45% {
+    transform: scale(1.02) translateX(-1.2%);
+  }
+
+  70% {
+    transform: scale(1.02) translateX(-1.2%);
+  }
+
+  100% {
+    transform: scale(1.06) translateX(0);
+  }
+}
+
+@keyframes vignette-pulse {
+  0% {
+    opacity: .55;
+  }
+
+  45% {
+    opacity: .85;
+  }
+
+  100% {
+    opacity: .55;
+  }
+}
+
+/* Composition entrance — also applied to the SVG clock so they move as one */
+@keyframes composition-in {
+  0% {
+    transform: translateY(8%) scale(.96);
+    opacity: 0;
+    filter: blur(6px);
+  }
+
+  14% {
+    transform: translateY(2%) scale(.985);
+    opacity: .9;
+    filter: blur(2px);
+  }
+
+  30% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  70% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  90% {
+    transform: translateY(0) scale(1.005);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    transform: translateY(2%) scale(.99);
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+
+/* Clouds drift up from below the frame */
+@keyframes clouds-drift {
+  0% {
+    transform: translateY(40%);
+    opacity: 0;
+  }
+
+  22% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  78% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+}
+
+/* Hour hand : almost imperceptible drift */
+@keyframes hour-drift {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+}
+
+/* Minute hand : visible slow sweep */
+@keyframes minute-drift {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Second hand : 30 discrete ticks per 6s — clearly "tick-tock" */
+@keyframes tick-tock {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shine-sweep {
+
+  0%,
+  38% {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  62% {
+    transform: translateX(110%);
+    opacity: 1;
+  }
+
+  63%,
+  100% {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+}
+
+@keyframes cta-breathe {
+
+  0%,
+  32% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: .9;
+  }
+
+  55% {
+    opacity: .15;
+  }
+
+  65% {
+    opacity: .85;
+  }
+
+  75% {
+    opacity: .15;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .bg,
+  .clouds,
+  .composition,
+  .shine,
+  .cta-glow,
+  .vignette,
+  .clock,
+  .hand-hour,
+  .hand-minute,
+  .hand-second {
+    animation: none !important;
+  }
+
+  .clouds,
+  .composition,
+  .clock {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
 
 /* .btn-lemon.btn-sm,
 .btn-zyrtec.btn-sm {
@@ -235,7 +579,7 @@ sup {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: var(--color-zyrtec-blue);
+  /* background-color: var(--color-zyrtec-blue); */
 }
 
 .hero-image {

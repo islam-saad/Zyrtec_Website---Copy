@@ -47,7 +47,42 @@
 
         <!-- ============== HERO BANNER ============== -->
         <section class="about-hero" aria-label="About Zyrtec hero">
-            <img src="./assets/about-zyrtec/hero-img.png" alt="Zyrtec — fast & effective allergy relief" class="about-hero-img" />
+            <!-- <img src="./assets/about-zyrtec/hero-img.png" alt="Zyrtec — fast & effective allergy relief" class="about-hero-img" /> -->
+            <div class="banner" role="img" aria-label="Zyrtec — for fast and effective relief of allergy symptoms in 20 to 60 minutes. Zyrtec can reconnect.">
+                <div class="layer bg"></div>
+                <div class="layer vignette"></div>
+                <div class="layer composition"></div>
+
+                <div class="clock">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="handshadow2" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation=".4" />
+                                <feOffset dx="0" dy=".5" />
+                                <feComponentTransfer>
+                                    <feFuncA type="linear" slope=".35" />
+                                </feComponentTransfer>
+                                <feMerge>
+                                    <feMergeNode />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <g filter="url(#handshadow2)">
+                            <line class="hand-hour" x1="50" y1="50" x2="50" y2="30" stroke="#0e3d6e" stroke-width="3.4" stroke-linecap="round" />
+                            <line class="hand-minute" x1="50" y1="50" x2="50" y2="20" stroke="#1872b8" stroke-width="2.6" stroke-linecap="round" />
+                            <line class="hand-second" x1="50" y1="55" x2="50" y2="14" stroke="#d63b2f" stroke-width="1.1" stroke-linecap="round" />
+                            <circle cx="50" cy="50" r="2.2" fill="#0e3d6e" />
+                            <circle cx="50" cy="50" r=".9" fill="#fff" />
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="layer shine"></div>
+                <div class="layer cta-glow"></div>
+
+                <a class="cta-link" href="https://groupvhm.net/hosting/GSK/Zyrtec_Microsite/about-zyrtec.html" aria-label="Learn more about Zyrtec"></a>
+            </div>
         </section>
 
         <!-- ============== PACK + AND FAVORABLE CONTROL ============== -->
