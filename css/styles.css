@@ -116,7 +116,9 @@ sup {
   transform: translateY(-1px);
 }
 
-/* ---------- Banner stage (1600x800, fluid) ---------- */
+/* ---------- Banner stage (1600x800, fluid) ----------
+     Held invisible until JavaScript confirms all images have decoded,
+     then fades in as one unit. */
 .banner {
   position: relative;
   width: 100%;
@@ -124,9 +126,16 @@ sup {
   aspect-ratio: 2 / 1;
   margin: 0 auto;
   overflow: hidden;
-  background: #000;
+  /* background: #d9d9d9; */
+  /* soft neutral while loading, never black */
   /* box-shadow: 0 10px 30px rgba(0, 0, 0, .12); */
   isolation: isolate;
+  opacity: 0;
+  transition: opacity .55s ease-out;
+}
+
+.banner.ready {
+  opacity: 1;
 }
 
 .layer {
@@ -140,47 +149,38 @@ sup {
   will-change: transform, opacity, filter;
 }
 
-/* ---------- Layer 1 : Background photo (woman, relief scene) ---------- */
+/* ---------- Layer 1 : Background photo ---------- */
 .bg {
   background-image: url("../assets/v1_bg_woman.jpg");
   transform-origin: 70% 50%;
-  animation: kenburns 8s ease-in-out infinite;
+  animation: kenburns 14s ease-in-out infinite;
 }
 
-/* Soft warm vignette to lift the foreground off the photo */
+/* Soft warm vignette */
 .vignette {
   background: radial-gradient(ellipse at 70% 50%,
       rgba(0, 0, 0, 0) 35%,
       rgba(0, 0, 0, .18) 70%,
       rgba(0, 0, 0, .42) 100%);
   pointer-events: none;
-  animation: vignette-pulse 8s ease-in-out infinite;
 }
 
-/* ---------- Layer 2 : Foreground composition
-       (blue curve + timer + product + CTA copy) — slides in as one unit ---------- */
+/* ---------- Layer 2 : Foreground composition (always visible) ---------- */
 .composition {
   background-image: url("../assets/v1_timer_composition.png");
-  transform-origin: 50% 100%;
-  animation: composition-in 8s cubic-bezier(.22, .9, .3, 1) infinite;
+  animation: composition-float 9s ease-in-out infinite;
 }
 
 /* ---------- Layer 3 : Animated SVG clock overlay ----------
-     Sits exactly over the static clock at center (380,353) r=220 in 1600x800.
-     The face PNG underneath provides the dial; only the hands here animate. */
+     Sits over the static clock at center (380,353) r=220 in 1600x800 */
 .clock {
   position: absolute;
   left: 10%;
-  /* (380 - 220) / 1600 */
   top: 16.625%;
-  /* (353 - 220) / 800  */
   width: 27.5%;
-  /* 440 / 1600 */
   height: 55%;
-  /* 440 / 800  */
-  transform-origin: 50% 100%;
-  animation: composition-in 8s cubic-bezier(.22, .9, .3, 1) infinite;
   pointer-events: none;
+  animation: composition-float 9s ease-in-out infinite;
 }
 
 .clock svg {
@@ -190,7 +190,6 @@ sup {
   overflow: visible;
 }
 
-/* The hour and minute hands match the static design's pose, but drift slowly */
 .hand-hour {
   transform-origin: 50px 50px;
   animation: hour-drift 480s linear infinite;
@@ -201,29 +200,29 @@ sup {
   animation: minute-drift 60s linear infinite;
 }
 
-/* Second hand: tick-tock, 30 discrete ticks per loop */
 .hand-second {
   transform-origin: 50px 50px;
-  animation: tick-tock 6s steps(30, end) infinite;
+  animation: tick-tock 6s steps(60, end) infinite;
 }
 
-.hand-pin {
-  transform-origin: 50px 50px;
-}
-
-/* ---------- Layer 4 : White clouds — FOREGROUND, on top of the composition ---------- */
+/* ---------- Layer 4 : White clouds — FOREGROUND ----------
+     Visually links the banner to the headline section below.
+     Transform-origin is the BOTTOM EDGE so the animation can never expose
+     a blue gap below the clouds. Horizontal sway + breathing scale only,
+     no upward translateY. */
 .clouds {
   background-image: url("../assets/v1_clouds.png");
   background-size: 100% auto;
   background-position: bottom center;
-  animation: clouds-drift 8s ease-in-out infinite;
+  transform-origin: 50% 100%;
+  animation: clouds-drift 14s ease-in-out infinite;
 }
 
-/* ---------- Layer 5 : Shine sweep across the whole banner ---------- */
+/* ---------- Layer 5 : Shine sweep ---------- */
 .shine {
   background: linear-gradient(115deg,
       rgba(255, 255, 255, 0) 38%,
-      rgba(255, 255, 255, .32) 50%,
+      rgba(255, 255, 255, .30) 50%,
       rgba(255, 255, 255, 0) 62%);
   mix-blend-mode: screen;
   transform: translateX(-110%);
@@ -238,11 +237,10 @@ sup {
       rgba(0, 153, 213, 0) 16%);
   mix-blend-mode: screen;
   opacity: 0;
-  animation: cta-breathe 8s ease-in-out infinite;
+  animation: cta-breathe 6s ease-in-out infinite;
   pointer-events: none;
 }
 
-/* ---------- Click-through CTA hit area ---------- */
 .cta-link {
   position: absolute;
   top: 38%;
@@ -255,104 +253,58 @@ sup {
 }
 
 /* ============================================================
-     KEYFRAMES (8s loop)
+     KEYFRAMES — all continuous, none ever fade to 0 opacity
      ============================================================ */
 
 @keyframes kenburns {
   0% {
-    transform: scale(1.06) translateX(0);
+    transform: scale(1.04);
   }
 
-  45% {
-    transform: scale(1.02) translateX(-1.2%);
-  }
-
-  70% {
-    transform: scale(1.02) translateX(-1.2%);
+  50% {
+    transform: scale(1.00);
   }
 
   100% {
-    transform: scale(1.06) translateX(0);
+    transform: scale(1.04);
   }
 }
 
-@keyframes vignette-pulse {
+@keyframes composition-float {
   0% {
-    opacity: .55;
+    transform: translateY(0) scale(1);
   }
 
-  45% {
-    opacity: .85;
+  50% {
+    transform: translateY(-0.4%) scale(1.005);
   }
 
   100% {
-    opacity: .55;
+    transform: translateY(0) scale(1);
   }
 }
 
-/* Composition entrance — also applied to the SVG clock so they move as one */
-@keyframes composition-in {
-  0% {
-    transform: translateY(8%) scale(.96);
-    opacity: 0;
-    filter: blur(6px);
-  }
-
-  14% {
-    transform: translateY(2%) scale(.985);
-    opacity: .9;
-    filter: blur(2px);
-  }
-
-  30% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  70% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  90% {
-    transform: translateY(0) scale(1.005);
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  100% {
-    transform: translateY(2%) scale(.99);
-    opacity: 0;
-    filter: blur(3px);
-  }
-}
-
-/* Clouds drift up from below the frame */
+/* Clouds : horizontal sway + breathing scale, anchored to the bottom
+     edge so the cloud silhouette always reaches y=100%. No vertical
+     translation — guarantees no blue line ever appears below the clouds. */
 @keyframes clouds-drift {
   0% {
-    transform: translateY(40%);
-    opacity: 0;
+    transform: translateX(0) scale(1);
   }
 
-  22% {
-    transform: translateY(0);
-    opacity: 1;
+  33% {
+    transform: translateX(-.6%) scale(1.012);
   }
 
-  78% {
-    transform: translateY(0);
-    opacity: 1;
+  66% {
+    transform: translateX(.6%) scale(1.012);
   }
 
   100% {
-    transform: translateY(20%);
-    opacity: 0;
+    transform: translateX(0) scale(1);
   }
 }
 
-/* Hour hand : almost imperceptible drift */
 @keyframes hour-drift {
   from {
     transform: rotate(0deg);
@@ -363,7 +315,6 @@ sup {
   }
 }
 
-/* Minute hand : visible slow sweep */
 @keyframes minute-drift {
   from {
     transform: rotate(0deg);
@@ -374,7 +325,6 @@ sup {
   }
 }
 
-/* Second hand : 30 discrete ticks per 6s — clearly "tick-tock" */
 @keyframes tick-tock {
   from {
     transform: rotate(0deg);
@@ -388,21 +338,21 @@ sup {
 @keyframes shine-sweep {
 
   0%,
-  38% {
+  30% {
     transform: translateX(-110%);
     opacity: 0;
   }
 
-  45% {
+  35% {
     opacity: 1;
   }
 
-  62% {
+  55% {
     transform: translateX(110%);
     opacity: 1;
   }
 
-  63%,
+  56%,
   100% {
     transform: translateX(110%);
     opacity: 0;
@@ -410,21 +360,19 @@ sup {
 }
 
 @keyframes cta-breathe {
-
-  0%,
-  32% {
+  0% {
     opacity: 0;
   }
 
-  45% {
+  20% {
     opacity: .9;
   }
 
-  55% {
+  35% {
     opacity: .15;
   }
 
-  65% {
+  55% {
     opacity: .85;
   }
 
@@ -444,20 +392,11 @@ sup {
   .composition,
   .shine,
   .cta-glow,
-  .vignette,
   .clock,
   .hand-hour,
   .hand-minute,
   .hand-second {
     animation: none !important;
-  }
-
-  .clouds,
-  .composition,
-  .clock {
-    opacity: 1;
-    transform: none;
-    filter: none;
   }
 }
 

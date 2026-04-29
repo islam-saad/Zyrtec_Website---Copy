@@ -21,9 +21,15 @@
   aspect-ratio: 2 / 1;
   margin: 0 auto;
   overflow: hidden;
-  background: #000;
+  /* background: #d9d9d9; */
   /* box-shadow: 0 10px 30px rgba(0, 0, 0, .12); */
   isolation: isolate;
+  opacity: 0;
+  transition: opacity .55s ease-out;
+}
+
+.banner.ready {
+  opacity: 1;
 }
 
 .layer {
@@ -37,16 +43,11 @@
   will-change: transform, opacity, filter;
 }
 
-/* ---------- Layer 1 : Background photo (before+after — both men, static)
-       NOTE: The previous version used a clip-path wipe between two photos, which
-       produced a visible vertical seam line. That has been removed — both men
-       are now visible from the start; the brand story (suffering left → relief
-       right) reads from the photo itself, and the entrance drama is carried by
-       the foreground composition + ticking clock. ---------- */
+/* ---------- Layer 1 : Background photo ---------- */
 .bg {
   background-image: url("../assets/v2_bg_before_after.jpg");
   transform-origin: 50% 50%;
-  animation: kenburns 9s ease-in-out infinite;
+  animation: kenburns 14s ease-in-out infinite;
 }
 
 .vignette {
@@ -56,32 +57,39 @@
       rgba(0, 0, 0, .20) 70%,
       rgba(0, 0, 0, .45) 100%);
   pointer-events: none;
-  animation: vignette-pulse 9s ease-in-out infinite;
 }
 
-/* ---------- Layer 2 : Foreground composition
-       (timer + product + body copy + CTA + clouds) ---------- */
+/* ---------- Layer 2 : Foreground composition ----------
+     Anchored to the BOTTOM so the breathing scale never lifts the baked-in
+     cloud edge off the lower border (which would expose blue background).
+     Horizontal sway + slight scale gives the clouds a clearly readable
+     drift while the timer/text/product barely move.
+
+     NOTE: A separate v1_clouds overlay was previously stacked on top of
+     this composition to add cloud drift, but its silhouettes did not
+     perfectly align with the clouds baked into v2_full_composition.png —
+     when it drifted, the mismatch produced visible blue dots between the
+     two cloud patterns. Removed; the composition's own bottom-anchored
+     breathing now provides gentle cloud movement without artifacts. */
 .composition {
   background-image: url("../assets/v2_full_composition.png");
   transform-origin: 50% 100%;
-  animation: composition-in 9s cubic-bezier(.22, .9, .3, 1) infinite;
+  animation: composition-breathe 14s ease-in-out infinite;
 }
 
 /* ---------- Layer 3 : Animated SVG clock overlay ----------
-     Sits over the static clock at center (749,370) r=175 in 1600x800 ---------- */
+     Sits over the static clock at center (749,370) r=175 in 1600x800.
+     Shares the composition's bottom-anchored breathing so the clock
+     and the rest of the composition move together as one unit. */
 .clock {
   position: absolute;
   left: 35.875%;
-  /* (749 - 175) / 1600 */
   top: 24.375%;
-  /* (370 - 175) / 800  */
   width: 21.875%;
-  /* 350 / 1600 */
   height: 43.75%;
-  /* 350 / 800  */
-  transform-origin: 50% 100%;
-  animation: composition-in 9s cubic-bezier(.22, .9, .3, 1) infinite;
   pointer-events: none;
+  transform-origin: 50% 100%;
+  animation: composition-breathe 14s ease-in-out infinite;
 }
 
 .clock svg {
@@ -103,14 +111,14 @@
 
 .hand-second {
   transform-origin: 50px 50px;
-  animation: tick-tock 6s steps(30, end) infinite;
+  animation: tick-tock 6s steps(60, end) infinite;
 }
 
 /* ---------- Layer 4 : Shine sweep ---------- */
 .shine {
   background: linear-gradient(115deg,
       rgba(255, 255, 255, 0) 38%,
-      rgba(255, 255, 255, .32) 50%,
+      rgba(255, 255, 255, .30) 50%,
       rgba(255, 255, 255, 0) 62%);
   mix-blend-mode: screen;
   transform: translateX(-110%);
@@ -125,11 +133,10 @@
       rgba(0, 153, 213, 0) 16%);
   mix-blend-mode: screen;
   opacity: 0;
-  animation: cta-breathe 9s ease-in-out infinite;
+  animation: cta-breathe 6s ease-in-out infinite;
   pointer-events: none;
 }
 
-/* ---------- Click-through CTA ---------- */
 .cta-link {
   position: absolute;
   top: 36%;
@@ -142,76 +149,40 @@
 }
 
 /* ============================================================
-     KEYFRAMES (9s loop)
+     KEYFRAMES
      ============================================================ */
 
 @keyframes kenburns {
   0% {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 
-  45% {
-    transform: scale(1.02);
-  }
-
-  70% {
-    transform: scale(1.02);
+  50% {
+    transform: scale(1.00);
   }
 
   100% {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 }
 
-@keyframes vignette-pulse {
+/* Composition breathing : bottom-anchored so the baked-in cloud edge
+     stays glued to the bottom border (no blue gap can appear). */
+@keyframes composition-breathe {
   0% {
-    opacity: .55;
+    transform: translateX(0) scale(1);
   }
 
-  45% {
-    opacity: .85;
+  33% {
+    transform: translateX(-.5%) scale(1.012);
+  }
+
+  66% {
+    transform: translateX(.5%) scale(1.012);
   }
 
   100% {
-    opacity: .55;
-  }
-}
-
-@keyframes composition-in {
-  0% {
-    transform: translateY(8%) scale(.96);
-    opacity: 0;
-    filter: blur(6px);
-  }
-
-  14% {
-    transform: translateY(2%) scale(.985);
-    opacity: .9;
-    filter: blur(2px);
-  }
-
-  30% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  78% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  92% {
-    transform: translateY(2%) scale(.99);
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  100% {
-    transform: translateY(8%) scale(.96);
-    opacity: 0;
-    filter: blur(6px);
+    transform: translateX(0) scale(1);
   }
 }
 
@@ -248,21 +219,21 @@
 @keyframes shine-sweep {
 
   0%,
-  38% {
+  30% {
     transform: translateX(-110%);
     opacity: 0;
   }
 
-  45% {
+  35% {
     opacity: 1;
   }
 
-  62% {
+  55% {
     transform: translateX(110%);
     opacity: 1;
   }
 
-  63%,
+  56%,
   100% {
     transform: translateX(110%);
     opacity: 0;
@@ -270,25 +241,23 @@
 }
 
 @keyframes cta-breathe {
-
-  0%,
-  32% {
+  0% {
     opacity: 0;
   }
 
-  50% {
+  20% {
     opacity: .9;
   }
 
-  60% {
+  35% {
     opacity: .15;
   }
 
-  70% {
+  55% {
     opacity: .85;
   }
 
-  80% {
+  75% {
     opacity: .15;
   }
 
@@ -303,19 +272,11 @@
   .composition,
   .shine,
   .cta-glow,
-  .vignette,
   .clock,
   .hand-hour,
   .hand-minute,
   .hand-second {
     animation: none !important;
-  }
-
-  .composition,
-  .clock {
-    opacity: 1;
-    transform: none;
-    filter: none;
   }
 }
 
